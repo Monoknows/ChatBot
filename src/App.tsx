@@ -1,12 +1,11 @@
-import Chatbot from "./components/Chatbot/Chatbot";
-import Api from "./components/Api/Api";
+import LandingPage from "./components/LandingPage/LandingPage";
 
 function App() {
   return (
     <>
-      <Chatbot />
-      <Api />
+      <LandingPage />
     </>
   );
 }
+
 export default App;
