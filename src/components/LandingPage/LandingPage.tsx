@@ -1,4 +1,4 @@
-import React, { type JSX } from "react";
+import { type JSX } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import robot from "../../assets/robot-removebg-preview.png";
@@ -17,7 +17,7 @@ export default function LandingPage(): JSX.Element {
   };
 
   return (
-    <div className="w-full overflow-x-hidden bg-gradient-to-b from-[#030712] via-[#0a0f1a] to-[#020617] text-white selection:bg-cyan-400/20">
+    <div className="w-full overflow-x-hidden bg-linear-to-b from-[#030712] via-[#0a0f1a] to-[#020617] text-white selection:bg-cyan-400/20">
       {/* ===== HERO SECTION ===== */}
       <section className="relative flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 sm:px-16 pt-24 lg:pt-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(14,165,233,0.2),transparent_70%)]" />
@@ -30,7 +30,7 @@ export default function LandingPage(): JSX.Element {
           animate="visible"
         >
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight">
-            <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+            <span className="bg-linear-to-r from-cyan-400 via-sky-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.3)]">
               Responder
             </span>
             <br />
@@ -66,7 +66,7 @@ export default function LandingPage(): JSX.Element {
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full w-[18rem] h-[18rem] mx-auto animate-pulse" />
+            <div className="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full w-[18rem] h-72 mx-auto animate-pulse" />
             <motion.img
               src={robot}
               alt="Responder Robot"
@@ -81,13 +81,13 @@ export default function LandingPage(): JSX.Element {
       {/* ===== FEATURES SECTION ===== */}
       <section
         id="features"
-        className="relative w-screen py-32 px-8 sm:px-16 bg-gradient-to-b from-[#020617] via-[#0b1324] to-[#030712]"
+        className="relative w-screen py-32 px-8 sm:px-16 bg-linear-to-b from-[#020617] via-[#0b1324] to-[#030712]"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.08),transparent_70%)]" />
 
         <div className="max-w-6xl mx-auto text-center space-y-12">
           <motion.h2
-            className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-400 drop-shadow-lg"
+            className="text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-sky-300 to-blue-400 drop-shadow-lg"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -158,14 +158,14 @@ export default function LandingPage(): JSX.Element {
       {/* ===== ABOUT SECTION ===== */}
       <motion.section
         id="about"
-        className="relative py-28 px-8 sm:px-16 bg-gradient-to-b from-[#0b1324] via-[#0a0f1a] to-[#020617] border-t border-slate-800"
+        className="relative py-28 px-8 sm:px-16 bg-linear-to-b from-[#0b1324] via-[#0a0f1a] to-[#020617] border-t border-slate-800"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-400 bg-clip-text text-transparent drop-shadow-md">
+          <h2 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-cyan-400 via-sky-300 to-blue-400 bg-clip-text text-transparent drop-shadow-md">
             About Responder
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto">

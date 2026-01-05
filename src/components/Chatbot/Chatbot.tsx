@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import DOMPurify, { type Config } from "dompurify";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,14 +14,14 @@ export default function Chatbot() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // --- Auto-scroll to bottom on new messages ---
+  //Auto-scroll to bottom on new messages
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
-  // --- Extract reply safely ---
+  //Extract reply safely
   const extractReply = (p: unknown): string => {
     if (p === null || p === undefined) return "";
     if (typeof p === "string") {
@@ -87,7 +87,7 @@ export default function Chatbot() {
     return tmp.textContent || tmp.innerText || "";
   };
 
-  // --- Send message ---
+  //Send message
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
 
@@ -132,13 +132,13 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="relative w-screen h-screen flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white overflow-hidden">
+    <div className="relative w-screen h-screen flex flex-col bg-linear-to-b from-slate-950 via-slate-900 to-black text-white overflow-hidden">
       {/* Glow background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.12),transparent_70%)] pointer-events-none" />
 
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between px-8 py-4 border-b border-white/10 backdrop-blur-md bg-white/5">
-        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 drop-shadow-md">
+        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-400 drop-shadow-md">
           Responder Chat
         </h1>
         <div className="w-10 h-10 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-300 shadow-inner">
@@ -169,9 +169,9 @@ export default function Chatbot() {
                 </div>
               )}
               <div
-                className={`px-5 py-3 rounded-2xl max-w-[70%] text-sm leading-relaxed shadow-md whitespace-pre-wrap break-words ${
+                className={`px-5 py-3 rounded-2xl max-w-[70%] text-sm leading-relaxed shadow-md whitespace-pre-wrap wrap-break-words ${
                   msg.sender === "user"
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-br-none shadow-cyan-400/40"
+                    ? "bg-linear-to-r from-cyan-500 to-blue-500 text-white rounded-br-none shadow-cyan-400/40"
                     : "bg-white/10 text-slate-200 rounded-bl-none border border-white/10"
                 }`}
               >
@@ -203,12 +203,12 @@ export default function Chatbot() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          className="flex-grow px-4 py-3 rounded-full bg-white/10 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          className="grow px-4 py-3 rounded-full bg-white/10 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
         />
         <button
           onClick={sendMessage}
           disabled={loading}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 hover:from-cyan-300 hover:to-blue-300 text-black font-semibold shadow-md active:scale-95 transition-transform disabled:opacity-50"
+          className="px-6 py-3 rounded-full bg-linear-to-r from-cyan-400 to-blue-400 hover:from-cyan-300 hover:to-blue-300 text-black font-semibold shadow-md active:scale-95 transition-transform disabled:opacity-50"
         >
           {loading ? "..." : "Send"}
         </button>
